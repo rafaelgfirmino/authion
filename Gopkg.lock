@@ -8,6 +8,30 @@
   version = "v1.4.7"
 
 [[projects]]
+  name = "github.com/go-sql-driver/mysql"
+  packages = ["."]
+  revision = "d523deb1b23d913de5bdada721a6071e71283618"
+  version = "v1.4.0"
+
+[[projects]]
+  name = "github.com/gofrs/uuid"
+  packages = ["."]
+  revision = "c52a24014454cb81a53adfe807a68f6a20b49d74"
+  version = "v3.0.0"
+
+[[projects]]
+  name = "github.com/gorilla/context"
+  packages = ["."]
+  revision = "08b5f424b9271eedf6f9f0ce86cb9396ed337a42"
+  version = "v1.1.1"
+
+[[projects]]
+  name = "github.com/gorilla/mux"
+  packages = ["."]
+  revision = "e3702bed27f0d39777b0b37b664b6280e8ef8fbf"
+  version = "v1.6.2"
+
+[[projects]]
   branch = "master"
   name = "github.com/hashicorp/hcl"
   packages = [
@@ -23,6 +47,12 @@
     "json/token"
   ]
   revision = "ef8a98b0bbce4a65b5aa4c368430a80ddc533168"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/justinas/alice"
+  packages = ["."]
+  revision = "03f45bd4b7dad4734bc4620e46a35789349abb20"
 
 [[projects]]
   name = "github.com/magiconair/properties"
@@ -41,6 +71,15 @@
   packages = ["."]
   revision = "c01d1270ff3e442a8a57cddc1c92dc1138598194"
   version = "v1.2.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/rafaelgfirmino/govalidate"
+  packages = [
+    ".",
+    "lang"
+  ]
+  revision = "208e1c6602762ecea42472d92ae6e0ad9e597226"
 
 [[projects]]
   name = "github.com/spf13/afero"
@@ -77,6 +116,15 @@
 
 [[projects]]
   branch = "master"
+  name = "golang.org/x/crypto"
+  packages = [
+    "bcrypt",
+    "blowfish"
+  ]
+  revision = "56440b844dfe139a8ac053f4ecac0b20b79058f4"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
   revision = "3dc4335d56c789b04b0ba99b7a37249d9b614314"
@@ -95,6 +143,12 @@
   version = "v0.3.0"
 
 [[projects]]
+  name = "google.golang.org/appengine"
+  packages = ["cloudsql"]
+  revision = "b1f26356af11148e710935ed1ac8a7f5702c7612"
+  version = "v1.1.0"
+
+[[projects]]
   name = "gopkg.in/yaml.v2"
   packages = ["."]
   revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
@@ -103,6 +157,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "13406016a0c35ecbeafa049b21f11e8a489af5c8e5a0158bb047e8a4e7c06dd1"
+  inputs-digest = "85e0981970d984f1cdc9b508621d83e13712893a8f3ebc618655479c1153139e"
   solver-name = "gps-cdcl"
   solver-version = 1

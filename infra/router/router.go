@@ -2,8 +2,10 @@ package router
 
 import (
 	"github.com/gorilla/mux"
-	"net/http"
+	"github.com/justinas/alice"
 	"github.com/rafaelgfirmino/authion/user/delivery"
+	"github.com/rafaelgfirmino/authion/user/midleware"
+	"net/http"
 )
 
 var Router *mux.Router
@@ -14,6 +16,10 @@ func init() {
 	addRoutes(router)
 }
 
-func addRoutes(router *mux.Router){
-	router.Methods(http.MethodGet).Path("/signup").HandlerFunc(delivery.Signup)
+func addRoutes(router *mux.Router) {
+	router.Methods(http.MethodPost).Path("/signup").
+		Handler(alice.New(midleware.ValidateUser, midleware.UserExist).Then(http.HandlerFunc(delivery.Signup)))
+	router.Methods(http.MethodPost).Path("/signin").HandlerFunc(delivery.Signin)
+	router.Methods(http.MethodPost).Path("/signup").HandlerFunc(delivery.Signup)
+	router.Methods(http.MethodPut).Path("/signup/confirmation").HandlerFunc(delivery.ConfirmationToken)
 }
