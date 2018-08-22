@@ -3,8 +3,8 @@ package delivery
 import (
 	"encoding/json"
 	"github.com/dgrijalva/jwt-go"
+	"github.com/rafaelgfirmino/SAE-Desafia/infra/response"
 	"github.com/rafaelgfirmino/authion/exceptions"
-	"github.com/rafaelgfirmino/authion/infra/response"
 	"github.com/rafaelgfirmino/authion/user/domain"
 	"github.com/rafaelgfirmino/authion/user/repository"
 	"github.com/rafaelgfirmino/authion/user/usecase"

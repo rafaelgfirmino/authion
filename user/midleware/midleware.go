@@ -8,8 +8,8 @@ import (
 	"github.com/rafaelgfirmino/govalidate"
 	"net/http"
 
+	"github.com/rafaelgfirmino/SAE-Desafia/infra/response"
 	"github.com/rafaelgfirmino/authion/exceptions"
-	"github.com/rafaelgfirmino/authion/infra/response"
 	"github.com/rafaelgfirmino/authion/user/repository"
 	"github.com/rafaelgfirmino/authion/user/usecase"
 )
