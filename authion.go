@@ -8,6 +8,6 @@ import (
 
 func main() {
 	configuration.Load()
-	server.Start()
 	store.NewStore()
+	server.Start()
 }

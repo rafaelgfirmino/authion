@@ -77,13 +77,10 @@ func ConfirmationToken(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusNotFound)
 		break
 	case exceptions.ErrorTryingDeleteToken, exceptions.ErrorTryingEnableUser:
-		http.Error(w, err.Error(), http.StatusPreconditionFailed)
-		w.WriteHeader(http.StatusOK)
-		response.Json("Email de usuário confirmado com sucesso", w)
+		response.Json(w, http.StatusPreconditionFailed,err.Error())
 		break
 	case nil:
-		w.WriteHeader(http.StatusOK)
-		response.Json("Email de usuário confirmado com sucesso", w)
+		response.Json(w, http.StatusOK, "Email de usuário confirmado com sucesso")
 		break
 	default:
 		w.WriteHeader(http.StatusPreconditionFailed)
