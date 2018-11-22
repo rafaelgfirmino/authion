@@ -3,8 +3,8 @@ package router
 import (
 	"github.com/gorilla/mux"
 	"github.com/justinas/alice"
-	"github.com/rafaelgfirmino/authion/user/delivery"
-	"github.com/rafaelgfirmino/authion/user/midleware"
+	"github.com/oftall/authion/user/delivery"
+	"github.com/oftall/authion/user/midleware"
 	"net/http"
 )
 

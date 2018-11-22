@@ -1,9 +1,9 @@
 package usecase
 
 import (
-	"github.com/rafaelgfirmino/authion/exceptions"
-	"github.com/rafaelgfirmino/authion/user/domain"
-	"github.com/rafaelgfirmino/authion/user/repository"
+	"github.com/oftall/authion/exceptions"
+	"github.com/oftall/authion/user/domain"
+	"github.com/oftall/authion/user/repository"
 )
 
 type UserUseCase interface {

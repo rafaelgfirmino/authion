@@ -3,11 +3,11 @@ package delivery
 import (
 	"encoding/json"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/rafaelgfirmino/SAE-Desafia/infra/response"
-	"github.com/rafaelgfirmino/authion/exceptions"
-	"github.com/rafaelgfirmino/authion/user/domain"
-	"github.com/rafaelgfirmino/authion/user/repository"
-	"github.com/rafaelgfirmino/authion/user/usecase"
+	"github.com/oftall/authion/infra/response"
+	"github.com/oftall/authion/exceptions"
+	"github.com/oftall/authion/user/domain"
+	"github.com/oftall/authion/user/repository"
+	"github.com/oftall/authion/user/usecase"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -23,12 +23,10 @@ func find(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusNotFound)
 		break
 	case nil:
-		w.WriteHeader(http.StatusOK)
-		response.Json(result, w)
+		response.Json(w, http.StatusOK, result)
 		break
 	default:
-		w.WriteHeader(http.StatusPreconditionFailed)
-		response.Json(err, w)
+		response.Json(w, http.StatusPreconditionFailed, err)
 	}
 }
 
@@ -38,7 +36,7 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 	user := ctx.Value("user").(*domain.User)
 	result, _ := userUsecase.RegisterNewUser(user)
 	user.Password = ""
-	response.Json(result, w)
+	response.Json(w, http.StatusOK ,result)
 }
 
 func Signin(w http.ResponseWriter, r *http.Request) {
@@ -53,14 +51,13 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 	}
 	err = userUsecase.Authenticate(user)
 	if err != nil {
-		w.WriteHeader(http.StatusUnauthorized)
-		response.Json("Usuário ou senha inválidos", w)
+		response.Json(w, http.StatusUnauthorized,"Usuário ou senha inválidos")
 		return
 	}
 	token := struct {
 		Token string `json:"token"`
 	}{generateJwtToken()}
-	response.Json(token, w)
+	response.Json(w, http.StatusOK, token)
 	return
 }
 

@@ -2,8 +2,8 @@ package server
 
 import (
 	"fmt"
-	"github.com/rafaelgfirmino/authion/infra/configuration"
-	"github.com/rafaelgfirmino/authion/infra/router"
+	"github.com/oftall/authion/infra/configuration"
+	"github.com/oftall/authion/infra/router"
 	"log"
 	"net/http"
 )

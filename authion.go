@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/rafaelgfirmino/authion/infra/configuration"
-	"github.com/rafaelgfirmino/authion/infra/server"
-	"github.com/rafaelgfirmino/authion/infra/store"
+	"github.com/oftall/authion/infra/configuration"
+	"github.com/oftall/authion/infra/server"
+	"github.com/oftall/authion/infra/store"
 )
 
 func main() {

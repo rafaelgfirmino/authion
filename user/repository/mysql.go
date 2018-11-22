@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gofrs/uuid"
-	"github.com/rafaelgfirmino/authion/exceptions"
-	"github.com/rafaelgfirmino/authion/infra/store"
-	"github.com/rafaelgfirmino/authion/user/domain"
+	"github.com/oftall/authion/exceptions"
+	"github.com/oftall/authion/infra/store"
+	"github.com/oftall/authion/user/domain"
 	"strings"
 )
 

@@ -1,6 +1,6 @@
 package repository
 
-import "github.com/rafaelgfirmino/authion/user/domain"
+import "github.com/oftall/authion/user/domain"
 
 type UserRepository interface {
 	FindByID(id int64) (*domain.User, error)

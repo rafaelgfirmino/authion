@@ -3,7 +3,7 @@ package store
 import (
 	"database/sql"
 	"fmt"
-	"github.com/rafaelgfirmino/authion/infra/configuration"
+	"github.com/oftall/authion/infra/configuration"
 )
 
 var Mysql *sql.DB

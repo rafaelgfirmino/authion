@@ -4,14 +4,14 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/rafaelgfirmino/authion/user/domain"
-	"github.com/rafaelgfirmino/govalidate"
+	"github.com/oftall/authion/user/domain"
+	"github.com/oftall/govalidate"
 	"net/http"
 
-	"github.com/rafaelgfirmino/SAE-Desafia/infra/response"
-	"github.com/rafaelgfirmino/authion/exceptions"
-	"github.com/rafaelgfirmino/authion/user/repository"
-	"github.com/rafaelgfirmino/authion/user/usecase"
+	"github.com/oftall/authion/infra/response"
+	"github.com/oftall/authion/exceptions"
+	"github.com/oftall/authion/user/repository"
+	"github.com/oftall/authion/user/usecase"
 )
 
 func ValidateUser(next http.Handler) http.Handler {
@@ -25,8 +25,7 @@ func ValidateUser(next http.Handler) http.Handler {
 		}
 		erros := govalidate.Struct(*user)
 		if len(erros) > 0 {
-			w.WriteHeader(http.StatusPreconditionFailed)
-			response.Json(erros, w)
+			response.Json(w, http.StatusPreconditionFailed, erros)
 			return
 		}
 		ctx := r.Context()
@@ -43,9 +42,8 @@ func UserExist(next http.Handler) http.Handler {
 		userUsecase := usecase.NewUserUsecase(repository.NewMysqlUserRepository())
 		result, _ := userUsecase.FindByEmail(user.Email)
 		if result.Email != "" {
-			w.WriteHeader(http.StatusConflict)
 			responseText := fmt.Sprintf(exceptions.ErrorEmailExist.Error(), user.Email)
-			response.Json(responseText, w)
+			response.Json(w, http.StatusConflict, responseText)
 			return
 		}
 		next.ServeHTTP(w, r)
