@@ -19,7 +19,7 @@ func Start() {
 
 	server := http.Server{
 		Addr:         listenAddr,
-		Handler:      receiver()(router.Router),
+		Handler:      router.Router,
 		ErrorLog:     logger,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
@@ -51,12 +51,4 @@ func Start() {
 
 	<-done
 	logger.Println("server stopped")
-}
-
-func receiver() func(http.Handler) http.Handler {
-	return func(next http.Handler) http.Handler {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			w.Header().Add("Content-type", "application/json")
-		})
-	}
 }
